@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Army {
     private String name;
@@ -20,6 +21,7 @@ public class Army {
     public void addAll(List<Unit> units){
         //???????
     }
+
     public void remove(Unit unit){
         this.units.remove(unit);
     }
@@ -31,4 +33,15 @@ public class Army {
         }
         return hasUnits;
     }
+
+
+
+
+    public Unit getRandomUnit(){
+        Random rand = new Random();
+        return units.get(rand.nextInt(units.size()));
+    }
+
+
+
 }
