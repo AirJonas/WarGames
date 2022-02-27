@@ -11,8 +11,9 @@ public abstract class Unit {
         this.armor = armor;
     }
 
-    public void Attack(Unit oponent){
 
+    public void attack(Unit oponent){
+        health = health - (this.attack + getAttackBonus()) + (armor + getResistBonus());
     }
 
     public String getName(){
