@@ -19,6 +19,7 @@ public class Army {
      * @param name of the army
      */
     public Army(String name){
+        this.name = name;
         this.units = new ArrayList<>();
     }
 
