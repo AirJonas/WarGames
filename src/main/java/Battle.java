@@ -17,11 +17,13 @@ public class Battle {
                 armyTwo.remove(defender);
             }
 
-            attacker = armyTwo.getRandomUnit();
-            defender = armyOne.getRandomUnit();
-            attacker.attack(defender);
-            if(defender.getHealth() <= 0){
-                armyOne.remove(defender);
+            if(armyTwo.hasUnits()){
+                attacker = armyTwo.getRandomUnit();
+                defender = armyOne.getRandomUnit();
+                attacker.attack(defender);
+                if(defender.getHealth() <= 0){
+                    armyOne.remove(defender);
+                }
             }
 
         }
@@ -30,7 +32,7 @@ public class Battle {
         } else {
             victor = armyTwo;
         }
-    return victor;
+        return victor;
     }
 
 }

@@ -32,6 +32,14 @@ public class Army {
     }
 
     /**
+     * set name of the army
+     * @param name of the army
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * add a unit to the arraylist that hold Units
      * @param unit a unit
      */
@@ -62,7 +70,7 @@ public class Army {
      */
     public boolean hasUnits(){
         boolean hasUnits = true;
-        if (this.units.isEmpty() == true){
+        if (this.units.isEmpty()){
             hasUnits = false;
         }
         return hasUnits;
