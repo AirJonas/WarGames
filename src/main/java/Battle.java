@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Battle {
     private Army armyOne;
     private Army armyTwo;
@@ -9,24 +11,25 @@ public class Battle {
 
     public Army simulate(){
         Army victor;
+        Random rand = new Random();
         while(armyOne.hasUnits() && armyTwo.hasUnits()){
             Unit attacker = armyOne.getRandomUnit();
             Unit defender = armyTwo.getRandomUnit();
-            attacker.attack(defender);
+            if (rand.nextBoolean()) {
+                attacker.attack(defender);
+            } else {
+                defender.attack(attacker);
+            }
+
             if(defender.getHealth() <= 0){
                 armyTwo.remove(defender);
             }
 
-            if(armyTwo.hasUnits()){
-                attacker = armyTwo.getRandomUnit();
-                defender = armyOne.getRandomUnit();
-                attacker.attack(defender);
-                if(defender.getHealth() <= 0){
-                    armyOne.remove(defender);
-                }
+            if(attacker.getHealth() <= 0){
+                armyOne.remove(attacker);
+            }
             }
 
-        }
         if (armyOne.hasUnits()){
             victor = armyOne;
         } else {
